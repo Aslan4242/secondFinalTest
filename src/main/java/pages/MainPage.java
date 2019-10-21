@@ -17,6 +17,4 @@ public class MainPage {
     public void selectMenuItem(String itemName) {
         mainMenu.findElement(By.xpath("//a[contains(text(),'" + itemName + "')]")).click();
     }
-
-
 }

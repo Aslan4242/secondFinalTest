@@ -21,7 +21,7 @@ public class HeadPhonesListSteps {
         headPhonesListPage.showAsList.click();
     }
 
-    @Step("получение элементов на странице 12")
+    @Step("получение элементов на странице")
     public List<WebElement> StepGetElements() {
         List<WebElement> list = headPhonesListPage.getElements();
         return list;

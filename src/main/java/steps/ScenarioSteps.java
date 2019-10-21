@@ -3,7 +3,10 @@ package steps;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
@@ -37,11 +40,11 @@ public class ScenarioSteps {
         public void stepSelectMoreFilters(){
                 headPhonesListSteps.stepSelectAllFilters();
         }
-        @Then("^выбирается минимальная сумма \"(.*)\"$")
+        @Then("выбирается минимальная сумма \"(.*)\"$")
         public void stepSelectMinSum(String minSum){
                 filterSteps.stepSelectMinSum(minSum);
         }
-        @Then("^выбираются производители \"(.*)\"$")
+        @Then("выбираются производители \"(.*)\"$")
         public void stepSelectCompany(String company){
                 filterSteps.stepSelectCheckBox(company);
         }
@@ -53,15 +56,10 @@ public class ScenarioSteps {
         public void stepShowAsList(){
                 headPhonesListSteps.showAsList();
         }
-        @Then("проверяется, что элементов на странице 20")
-        public void StepCheckElements(){
-                try {
-                        Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                        e.printStackTrace();
-                }
-                List<WebElement> list =  headPhonesListSteps.StepGetElements();
-                assertEquals("Количество элементов на странице не равно 20",20, list.size());
+        @Then("проверяется, что элементов на странице \"(.*)\"$")
+        public void StepCheckElements(int count) {
+                List<WebElement> list =  BaseSteps.getDriver().findElements(By.xpath("//div[contains(@id,'product')]//a[@title][contains(@class,'theme')]"));
+                assertEquals("Количество элементов на странице не равно 21",count, list.size());
                 elementName = list.get(0).getText();
         }
         @When("вводится название товара в поисковую строку")
@@ -75,6 +73,6 @@ public class ScenarioSteps {
         @Then("проверяется, что выбранный товар соответствует запомненному значению")
         public void StepCheckElement() {
                 String currentElement = headPhonesSteps.getLabelText();
-                assertEquals("Выбранный товар не соответствует запомненному значению",elementName, currentElement);
+                assertEquals("Выбранный товар не соответствует запомненному значению " + elementName + "|" + currentElement,elementName, currentElement);
         }
 }

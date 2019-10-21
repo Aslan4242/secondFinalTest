@@ -24,7 +24,7 @@ public class HeadPhonesListPage {
     @FindBy(xpath = "//a[contains(@href,'filters')]")
     public WebElement filters;
 
-    @FindBy(xpath = "//div[contains(@id,'product')]//a[@title] [contains(@class,'theme')]")
+    @FindBy(xpath = "//div[contains(@id,'product')]//a[@title][contains(@class,'theme')]")
     public WebElement listProducts;
 
     @FindBy(xpath = "//li[contains(@class,'suggest2-rich-item i-bem suggest2-rich-item_interact_link suggest2-rich-item_type_mo')]")
@@ -48,7 +48,7 @@ public class HeadPhonesListPage {
     }
 
     public List<WebElement> getElements(){
-        List<WebElement> list =  BaseSteps.getDriver().findElements(By.xpath("//div[contains(@id,'product')]//a[@title] [contains(@class,'theme')]"));
+        List<WebElement> list =  BaseSteps.getDriver().findElements(By.xpath(".//div[contains(@id,'product')]//a[@title][contains(@class,'theme')]"));
         return list;
     }
 

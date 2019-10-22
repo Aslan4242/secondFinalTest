@@ -5,7 +5,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 
 public class FilterSteps {
 
-    @Step("выбрана мнимальная сумма '20000'")
+    @Step("выбрана мнимальная сумма '5000'")
     void stepSelectMinSum(String value) {
         new FiltersPage().fillMinSumField(value);
     }

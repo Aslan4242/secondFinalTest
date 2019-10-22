@@ -30,11 +30,6 @@ public class HeadPhonesListPage {
     @FindBy(xpath = "//li[contains(@class,'suggest2-rich-item i-bem suggest2-rich-item_interact_link suggest2-rich-item_type_mo')]")
     public WebElement dropDownProduct;
 
-   /* @FindBy(xpath = "//div/span//button[contains(@role,'listbox')]")
-    public WebElement show48ListBox;
-
-    @FindBy(xpath = "//span[text()='Показывать по 12']")
-    public WebElement show12;*/
 
     @FindBy(xpath = "//label[contains(@class,'radio-button__radio radio-button__radio_side_r')]")
     public WebElement showAsList;
@@ -44,7 +39,6 @@ public class HeadPhonesListPage {
     public void selectDropDownElement(String itemName) {
         BaseSteps.getDriver()
                 .findElement(By.xpath("//b[contains(text(),'"+itemName+"')]")).click();
-        //li[contains(@class,'suggest2-rich-item i-bem suggest2-rich-item_interact_link suggest2-rich-item_type_mo')]//b[text()='" + itemName +"']/../.. /.. /span
     }
 
     public List<WebElement> getElements(){
@@ -52,10 +46,6 @@ public class HeadPhonesListPage {
         return list;
     }
 
-    /*public void waitButtonClickable(){
-        Wait<WebDriver> wait = new WebDriverWait(BaseSteps.getDriver(), 5, 1000);
-        wait.until(ExpectedConditions.visibilityOf(show48ListBox));
-    }*/
     public void waitLinksClickable(){
         Wait<WebDriver> wait = new WebDriverWait(BaseSteps.getDriver(), 5, 1000);
         wait.until(ExpectedConditions.elementToBeClickable(listProducts));

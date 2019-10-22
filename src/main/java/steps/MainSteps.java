@@ -1,6 +1,5 @@
 package steps;
 
-import org.openqa.selenium.support.FindBy;
 import pages.MainPage;
 import ru.yandex.qatools.allure.annotations.Step;
 

@@ -12,11 +12,10 @@ public class MarketMainPage {
         PageFactory.initElements(BaseSteps.getDriver(), this);
     }
 
-    @FindBy(xpath = "//a[contains(@href,'elektronika')]")
+    @FindBy(xpath = "//div[@class='n-w-tabs__horizontal-tabs']")
    public WebElement electronic;
 
-    public void selectMenuItem() {
-        electronic.click();
+    public void selectMenuItem(String itemName) {
+        electronic.findElement(By.xpath(".//a[contains(@data-bem,'"+itemName+"')]")).click();
     }
-
 }

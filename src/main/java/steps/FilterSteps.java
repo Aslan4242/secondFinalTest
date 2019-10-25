@@ -19,5 +19,4 @@ public class FilterSteps {
     void stepSelectConfurmButton() {
         new FiltersPage().showButton.click();
     }
-
 }

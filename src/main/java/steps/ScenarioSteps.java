@@ -24,20 +24,22 @@ public class ScenarioSteps {
                 mainSteps.stepSelectMenu(menuItem);
         }
 
-        @When("выбрана категория 'Электроника'")
-        public void stepSelectCategory(){
-                marketMainSteps.stepSelectMenu();
+        @When("выбрана категория \"(.*)\"$")
+        public void stepSelectCategory(String menuItem){
+                marketMainSteps.stepSelectMenu(menuItem);
         }
 
-        @When("выбрана подкатегория - 'Наушники'")
-        public void stepSelectSubCategory(){
-                electronicSteps.stepSelectMenu();
+        @When("выбрана подкатегория - \"(.*)\"$")
+        public void stepSelectSubCategory(String itemName){
+                electronicSteps.stepSelectMenu(itemName);
         }
 
-        @Then("выбирается пункт 'Все фильтры'")
-        public void stepSelectMoreFilters(){
-                headPhonesListSteps.stepSelectAllFilters();
+
+        @Then("выбирается пункт \"(.*)\"$")
+        public void stepSelectMoreFilters(String itemName){
+                headPhonesListSteps.stepSelectAllFilters(itemName);
         }
+
         @Then("выбирается минимальная сумма \"(.*)\"$")
         public void stepSelectMinSum(String minSum){
                 filterSteps.stepSelectMinSum(minSum);

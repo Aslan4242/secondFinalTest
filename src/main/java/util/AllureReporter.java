@@ -20,5 +20,4 @@ public class AllureReporter extends  ru.yandex.qatools.allure.cucumberjvm.Allure
     public byte[] takeScreenSHot(){
         return ((TakesScreenshot) BaseSteps.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
-
 }

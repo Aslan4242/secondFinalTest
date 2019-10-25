@@ -29,6 +29,4 @@ public class FiltersPage extends BasePage {
                 selectCheckBox(BeatsCheckBox);
 
     }
-
-
 }

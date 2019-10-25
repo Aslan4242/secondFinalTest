@@ -1,5 +1,6 @@
 package steps;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.HeadPhonesListPage;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -11,9 +12,9 @@ import static junit.framework.TestCase.assertEquals;
 public class HeadPhonesListSteps {
     HeadPhonesListPage headPhonesListPage = new HeadPhonesListPage();
 
-    @Step("нажата кнопка 'Все фильтры'")
-    void stepSelectAllFilters() {
-        headPhonesListPage.filters.click();
+    @Step("нажата кнопка \"(.*)\"$")
+    void stepSelectAllFilters(String itemName) {
+        BaseSteps.getDriver().findElement(By.xpath("//span[text()='"+itemName+"']/..")).click();
     }
 
     @Step("элементы выводятся в виде списка'")
@@ -25,12 +26,6 @@ public class HeadPhonesListSteps {
     public List<WebElement> StepGetElements() {
         List<WebElement> list = headPhonesListPage.getElements();
         return list;
-    }
-
-    @Step("ожидание появления списка элементов на странице")
-    public void waitLinksClickable() {
-        headPhonesListPage.waitLinksClickable();
-
     }
     @Step("вводится в поисковую строку первый элемент из списка")
     public void StepFillSearchField() {
@@ -45,6 +40,4 @@ public class HeadPhonesListSteps {
         String firstElement = list.get(0).getText().toLowerCase().substring(9);
         headPhonesListPage.selectDropDownElement(firstElement);
     }
-
-
 }

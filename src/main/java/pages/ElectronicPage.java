@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,11 +12,10 @@ public class ElectronicPage {
         PageFactory.initElements(BaseSteps.getDriver(), this);
     }
 
-    @FindBy(xpath = "//a[contains(@href,'naushniki-i')]")
-    WebElement headPhones;
+    @FindBy(xpath = "//div[contains(@class,'section N9o4g')]")
+    WebElement electronicElements;
 
-    public void selectMenuItem() {
-        headPhones.click();
+    public void selectMenuItem(String itemName) {
+        electronicElements.findElement(By.xpath(".//a[contains(text(),'"+itemName+"')]")).click();
     }
-
 }

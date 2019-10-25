@@ -9,6 +9,5 @@ public class HeadPhonesSteps {
     @Step("получено название товара")
     public String getLabelText() {
      return headPhonesPage.ElementLabel.getText();
-
     }
 }

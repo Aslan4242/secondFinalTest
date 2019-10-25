@@ -9,5 +9,4 @@ public class MainSteps {
     public void stepSelectMenu(String menuItem) {
         new MainPage().selectMenuItem(menuItem);
     }
-
 }

@@ -34,8 +34,6 @@ public class HeadPhonesListPage {
     @FindBy(xpath = "//label[contains(@class,'radio-button__radio radio-button__radio_side_r')]")
     public WebElement showAsList;
 
-
-
     public void selectDropDownElement(String itemName) {
         BaseSteps.getDriver()
                 .findElement(By.xpath("//b[contains(text(),'"+itemName+"')]")).click();
@@ -50,5 +48,4 @@ public class HeadPhonesListPage {
         Wait<WebDriver> wait = new WebDriverWait(BaseSteps.getDriver(), 5, 1000);
         wait.until(ExpectedConditions.elementToBeClickable(listProducts));
     }
-
 }
